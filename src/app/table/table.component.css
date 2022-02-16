@@ -1,0 +1,16 @@
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+mat-header-cell, mat-cell {
+  justify-content: center;
+}
+
+.mat-form-field-inline {
+  width: 80% !important;
+}

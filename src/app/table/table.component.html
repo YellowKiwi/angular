@@ -1,0 +1,107 @@
+<div class="container">
+  <mat-form-field appearance="standard">
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" #input>
+  </mat-form-field>
+  <table mat-table [dataSource]="userList" matSort>
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+        <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+        <td mat-cell *matCellDef="let row">
+          <div *ngIf="row.editable === true">
+            <mat-form-field appearance="legacy" class="mat-form-field-inline">
+              <mat-select [(ngModel)]="row.status">
+                  <mat-option value="true">Activo</mat-option>
+                  <mat-option value="false">Baja</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div *ngIf="row.editable !== true">
+            {{row.status == "true" ? 'Activo' : 'Baja'}}
+          </div>
+        </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="firstname">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> First name </th>
+        <td mat-cell *matCellDef="let row">
+          <div *ngIf="row.editable === true">
+            <mat-form-field appearance="legacy" class="mat-form-field-inline">
+              <input matInput [(ngModel)]="row.firstname">
+            </mat-form-field>
+          </div>
+          <div *ngIf="row.editable !== true">
+            {{row.firstname}}
+          </div>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="lastname">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Last name </th>
+        <td mat-cell *matCellDef="let row">
+          <div *ngIf="row.editable === true">
+            <mat-form-field appearance="legacy" class="mat-form-field-inline">
+              <input matInput [(ngModel)]="row.lastname">
+            </mat-form-field>
+          </div>
+          <div *ngIf="row.editable !== true">
+            {{row.lastname}}
+          </div>
+        </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="practice">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Practice </th>
+        <td mat-cell *matCellDef="let row"> {{row.practice}} </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="saga">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Saga </th>
+        <td mat-cell *matCellDef="let row"> {{row.saga}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="grade">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Grade </th>
+        <td mat-cell *matCellDef="let row"> {{row.grade}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="work">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Work </th>
+        <td mat-cell *matCellDef="let row"> {{row.work}}% </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="editar">
+        <th mat-header-cell *matHeaderCellDef > Edición </th>
+        <td mat-cell *matCellDef="let row">
+          <button (click)="onClickEditar(row)">
+            <div *ngIf="row.editable === true">
+              Guardar
+            </div>
+            <div *ngIf="row.editable !== true">
+              Editar
+            </div>
+          </button>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="ver">
+        <th mat-header-cell *matHeaderCellDef > Detalle </th>
+        <td mat-cell *matCellDef="let row">
+          <button (click)="openDialog(row, 'lectura')">Ver</button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      <!-- Row shown when there is no matching data. -->
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+      </tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[10, 5]" showFirstLastButtons aria-label="Seleccionar el tamaño de la tabla">
+  </mat-paginator>
+</div>

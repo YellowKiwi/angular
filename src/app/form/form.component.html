@@ -1,0 +1,184 @@
+<div class="container">
+    <form (ngSubmit)="save(employeeForm.value)" [formGroup]="employeeForm">
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <div class="formNewEmployee">
+                    <div class="formInsideEls">
+                        <mat-form-field appearance="legacy" class="formEl">
+                            <mat-label>Nombre</mat-label>
+                            <input matInput formControlName="nombre" required
+                            [ngClass] = "{'is-invalid': (employeeForm.get('nombre')?.touched || employeeForm.get('nombre')?.dirty) && !employeeForm.get('nombre')?.valid}">
+                            <mat-error *ngIf="employeeForm.get('nombre')?.errors">{{getErrorMessage(employeeForm.get('nombre')?.errors)}}</mat-error>
+                        </mat-form-field>
+                        <br>
+
+                        <mat-form-field appearance="legacy" class="formEl">
+                            <mat-label>Apellidos</mat-label>
+                            <input matInput formControlName="apellidos" required
+                            [ngClass] = "{'is-invalid': (employeeForm.get('apellidos')?.touched || employeeForm.get('apellidos')?.dirty) && !employeeForm.get('apellidos')?.valid}">
+                            <mat-error *ngIf="employeeForm.get('apellidos')?.errors">{{getErrorMessage(employeeForm.get('apellidos')?.errors)}}</mat-error>
+                        </mat-form-field>
+                        <br>
+
+                        <mat-form-field appearance="legacy">
+                            <mat-label>Estado</mat-label>
+                            <mat-select formControlName="estado" required
+                            [ngClass] = "{'is-invalid': (employeeForm.get('estado')?.touched || employeeForm.get('estado')?.dirty) && !employeeForm.get('estado')?.valid}">
+                                <mat-option value="true">Activo</mat-option>
+                                <mat-option value="false">Baja</mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="employeeForm.get('estado')?.errors">{{getErrorMessage(employeeForm.get('estado')?.errors)}}</mat-error>
+                        </mat-form-field>
+                        <br>
+                        
+                        <mat-form-field appearance="legacy" class="formEl">
+                            <mat-label>Practice</mat-label>
+                            <input matInput formControlName="practice" required 
+                            [ngClass] = "{'is-invalid': (employeeForm.get('practice')?.touched || employeeForm.get('practice')?.dirty) && !employeeForm.get('practice')?.valid}">
+                            <mat-error *ngIf="employeeForm.get('practice')?.errors">{{getErrorMessage(employeeForm.get('practice')?.errors)}}</mat-error>
+                        </mat-form-field>
+                        <br>
+
+                        <mat-form-field appearance="legacy" class="formEl">
+                            <mat-label>Saga</mat-label>
+                            <input matInput formControlName="saga" required
+                            [ngClass] = "{'is-invalid': (employeeForm.get('saga')?.touched || employeeForm.get('saga')?.dirty) && !employeeForm.get('saga')?.valid}">
+                            <mat-error *ngIf="employeeForm.get('saga')?.errors">{{getErrorMessage(employeeForm.get('saga')?.errors)}}</mat-error>
+                        </mat-form-field>
+                        <br>
+
+                        <mat-form-field appearance="legacy">
+                            <mat-label>Grado</mat-label>
+                            <mat-select formControlName="grado" required 
+                            [ngClass] = "{'is-invalid': (employeeForm.get('grado')?.touched || employeeForm.get('grado')?.dirty) && !employeeForm.get('grado')?.valid}">
+                                <mat-option value="A1">A1</mat-option>
+                                <mat-option value="A2">A2</mat-option>
+                                <mat-option value="B1">B1</mat-option>
+                                <mat-option value="B2">B2</mat-option>
+                                <mat-option value="C1">C1</mat-option>
+                                <mat-option value="C2">C2</mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="employeeForm.get('grado')?.errors">{{getErrorMessage(employeeForm.get('grado')?.errors)}}</mat-error>
+                        </mat-form-field>
+                        <br>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-sm-12">
+                <div class="formNewEmployee">
+                    <div class="formInsideEls">
+                        <mat-form-field appearance="legacy" class="formEl">
+                            <mat-label>Email</mat-label>
+                            <input matInput formControlName="email" required
+                            [ngClass] = "{'is-invalid': (employeeForm.get('email')?.touched || employeeForm.get('email')?.dirty) && !employeeForm.get('email')?.valid}">
+                            <mat-error *ngIf="employeeForm.get('email')?.errors">{{getErrorMessage(employeeForm.get('email')?.errors)}}</mat-error>
+                        </mat-form-field>
+                        <br>
+
+                        <mat-form-field appearance="legacy" class="formEl">
+                            <mat-label>City</mat-label>
+                            <input matInput formControlName="city" required
+                            [ngClass] = "{'is-invalid': (employeeForm.get('city')?.touched || employeeForm.get('city')?.dirty) && !employeeForm.get('city')?.valid}">
+                            <mat-error *ngIf="employeeForm.get('city')?.errors">{{getErrorMessage(employeeForm.get('city')?.errors)}}</mat-error>
+                        </mat-form-field>
+                        <br>
+                        
+                        <mat-form-field appearance="legacy">
+                            <mat-label>Office</mat-label>
+                            <mat-select formControlName="office" required
+                            [ngClass] = "{'is-invalid': (employeeForm.get('office')?.touched || employeeForm.get('office')?.dirty) && !employeeForm.get('office')?.valid}">
+                                <mat-option value="Remoto">Remoto</mat-option>
+                                <mat-option value="Presencial">Presencial</mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="employeeForm.get('office')?.errors">{{getErrorMessage(employeeForm.get('office')?.errors)}}</mat-error>
+                        </mat-form-field>
+                        <br>
+
+                        <mat-form-field appearance="legacy" class="formEl">
+                            <mat-label>Area Leader</mat-label>
+                            <input matInput formControlName="areaLeader" required
+                            [ngClass] = "{'is-invalid': (employeeForm.get('areaLeader')?.touched || employeeForm.get('areaLeader')?.dirty) && !employeeForm.get('areaLeader')?.valid}">
+                            <mat-error *ngIf="employeeForm.get('areaLeader')?.errors">{{getErrorMessage(employeeForm.get('areaLeader')?.errors)}}</mat-error>
+                        </mat-form-field>
+                        <br>
+
+                        <mat-form-field appearance="legacy">
+                            <mat-label>Key people</mat-label>
+                            <mat-select formControlName="keyPeople" required
+                            [ngClass] = "{'is-invalid': (employeeForm.get('keyPeople')?.touched || employeeForm.get('keyPeople')?.dirty) && !employeeForm.get('keyPeople')?.valid}">
+                                <mat-option value="true">Sí</mat-option>
+                                <mat-option value="false">No</mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="employeeForm.get('keyPeople')?.errors">{{getErrorMessage(employeeForm.get('keyPeople')?.errors)}}</mat-error>
+                        </mat-form-field>
+                        <br>
+
+                        <mat-form-field appearance="legacy" class="formEl">
+                            <mat-label>ID</mat-label>
+                            <input matInput formControlName="id" required
+                            [ngClass] = "{'is-invalid': (employeeForm.get('id')?.touched || employeeForm.get('id')?.dirty) && !employeeForm.get('id')?.valid}">
+                            <mat-error *ngIf="employeeForm.get('id')?.errors">{{getErrorMessage(employeeForm.get('id')?.errors)}}</mat-error>
+                        </mat-form-field>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mgTop40px pd5px textCenter">
+            <div class="col-md-2">
+                <mat-form-field appearance="legacy" class="formEl">
+                    <mat-label>Cod</mat-label>
+                    <input matInput formControlName="cod" required
+                    [ngClass] = "{'is-invalid': (employeeForm.get('cod')?.touched || employeeForm.get('cod')?.dirty) && !employeeForm.get('cod')?.valid}">
+                    <mat-error *ngIf="employeeForm.get('cod')?.errors">{{getErrorMessage(employeeForm.get('cod')?.errors)}}</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-2">
+                <mat-form-field appearance="legacy" class="formEl">
+                    <mat-label>Division</mat-label>
+                    <input matInput formControlName="division" required
+                    [ngClass] = "{'is-invalid': (employeeForm.get('division')?.touched || employeeForm.get('division')?.dirty) && !employeeForm.get('division')?.valid}">
+                    <mat-error *ngIf="employeeForm.get('division')?.errors">{{getErrorMessage(employeeForm.get('division')?.errors)}}</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-2">
+                <mat-form-field appearance="legacy" class="formEl">
+                    <mat-label>Leader</mat-label>
+                    <input matInput formControlName="leader" required
+                    [ngClass] = "{'is-invalid': (employeeForm.get('leader')?.touched || employeeForm.get('leader')?.dirty) && !employeeForm.get('leader')?.valid}">
+                    <mat-error *ngIf="employeeForm.get('leader')?.errors">{{getErrorMessage(employeeForm.get('leader')?.errors)}}</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-2">
+                <mat-form-field appearance="legacy" class="formEl">
+                    <mat-label>Bill</mat-label>
+                    <input matInput formControlName="bill" required
+                    [ngClass] = "{'is-invalid': (employeeForm.get('bill')?.touched || employeeForm.get('bill')?.dirty) && !employeeForm.get('bill')?.valid}">
+                    <mat-error *ngIf="employeeForm.get('bill')?.errors">{{getErrorMessage(employeeForm.get('bill')?.errors)}}</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-2">
+                <mat-form-field appearance="legacy" class="formEl">
+                    <mat-label>Rol</mat-label>
+                    <input matInput formControlName="rol" required
+                    [ngClass] = "{'is-invalid': (employeeForm.get('rol')?.touched || employeeForm.get('rol')?.dirty) && !employeeForm.get('rol')?.valid}">
+                    <mat-error *ngIf="employeeForm.get('rol')?.errors">{{getErrorMessage(employeeForm.get('rol')?.errors)}}</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-2">
+                <mat-form-field appearance="legacy" class="formEl">
+                    <mat-label>work</mat-label>
+                    <input matInput formControlName="work" required
+                    [ngClass] = "{'is-invalid': (employeeForm.get('work')?.touched || employeeForm.get('work')?.dirty) && !employeeForm.get('work')?.valid}">
+                    <mat-error *ngIf="employeeForm.get('work')?.errors">{{getErrorMessage(employeeForm.get('work')?.errors)}}</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row submitBtnRow">
+            <button mat-raised-button color="primary" type="submit" [disabled]="!employeeForm.valid" class="submitBtn">
+                Crear
+            </button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,101 @@
+<h1 mat-dialog-title>{{data.name}}</h1>
+<div mat-dialog-content>
+  Detalles:
+  <br>
+  <br>
+  <div class="row">
+    <div class="col-md-3">
+        <mat-form-field appearance="legacy" class="formEl">
+            <mat-label>Email</mat-label>
+            <input matInput disabled [(ngModel)]="data.email">
+        </mat-form-field>
+    </div>
+    <div class="col-md-3">
+        <mat-form-field appearance="legacy" class="formEl">
+            <mat-label>Ciudad de trabajo</mat-label>
+            <input matInput disabled [(ngModel)]="data.city">
+        </mat-form-field>
+    </div>
+    <div class="col-md-3">
+        <mat-form-field appearance="legacy" class="formEl">
+            <mat-label>Ubicación de trabajo</mat-label>
+            <input matInput disabled [(ngModel)]="data.office">
+        </mat-form-field>
+    </div>
+    <div class="col-md-3">
+        <mat-form-field appearance="legacy" class="formEl">
+            <mat-label>Responsable Área</mat-label>
+            <input matInput disabled [(ngModel)]="data.areaLeader">
+        </mat-form-field>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+        <mat-form-field appearance="legacy" class="formEl">
+            <mat-label>Fecha prevista salida</mat-label>
+            <input matInput disabled [(ngModel)]="data.exit">
+        </mat-form-field>
+    </div>
+    <div class="col-md-3">
+        <mat-form-field appearance="legacy" class="formEl">
+            <mat-label>Antigüedad</mat-label>
+            <input matInput disabled [(ngModel)]="data.antiquity">
+        </mat-form-field>
+    </div>
+    <div class="col-md-3">
+        <mat-form-field appearance="legacy" class="formEl">
+            <mat-label>Key People</mat-label>
+            <input matInput disabled [(ngModel)]="data.keyPeople">
+        </mat-form-field>
+    </div>
+    <div class="col-md-3">
+        <mat-form-field appearance="legacy" class="formEl">
+            <mat-label>Fecha de última actualización</mat-label>
+            <input matInput disabled [(ngModel)]="data.updatedAt">
+        </mat-form-field>
+    </div>
+  </div>
+</div>
+Proyectos:
+<div>
+    <table mat-table [dataSource]="projectList">
+        <ng-container matColumnDef="cod">
+            <th mat-header-cell *matHeaderCellDef> Cod </th>
+            <td mat-cell *matCellDef="let element"> {{element.cod}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="division">
+            <th mat-header-cell *matHeaderCellDef> Division </th>
+            <td mat-cell *matCellDef="let element"> {{element.division}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="leader">
+            <th mat-header-cell *matHeaderCellDef> Leader </th>
+            <td mat-cell *matCellDef="let element"> {{element.leader}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="bill">
+            <th mat-header-cell *matHeaderCellDef> Bill </th>
+            <td mat-cell *matCellDef="let element"> {{element.bill}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="rol">
+            <th mat-header-cell *matHeaderCellDef> Rol </th>
+            <td mat-cell *matCellDef="let element"> {{element.rol}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="createdAt">
+            <th mat-header-cell *matHeaderCellDef> CreatedAt </th>
+            <td mat-cell *matCellDef="let element"> {{element.createdAt}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="work">
+            <th mat-header-cell *matHeaderCellDef> Work </th>
+            <td mat-cell *matCellDef="let element"> {{element.work}}% </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>

@@ -1,0 +1,14 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.mat-toolbar {
+  /*background-image: url("../../assets/img/banner.jpg");
+  background-size: cover;*/
+  background-color: tomato;
+  color: white;
+}
+
+.example-icon {
+  font-size: 22px;
+}
